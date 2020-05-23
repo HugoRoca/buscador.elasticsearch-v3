@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ./src/server.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,10 @@
     "koa-bodyparser": "^4.3.0",
     "koa-route": "^3.2.0",
     "koa-static": "^5.0.0",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.15",
+    "yenv": "^2.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }
