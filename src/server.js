@@ -1,13 +1,15 @@
 const koa = require('koa')
 const bodyParser = require('koa-bodyparser')
-const serve = require('koa-static')
-const PORT = env.PORT || 3000
+const path = require('path')
+const yenv = require('yenv')
+const env = yenv()
 
 const server = new koa()
 
-server.use(bodyParser())
-server.use(serve(__dirname + '/public'))
 
-server.listen(3000, () => {
-    console.log(`server is running in port ${PORT}`)
+server.use(bodyParser())
+server.use(require('koa-static')(path.resolve(__dirname, '../public')))
+
+server.listen(env.PORT, () => {
+    console.log(`server is running in port ${env.PORT}`)
 })
