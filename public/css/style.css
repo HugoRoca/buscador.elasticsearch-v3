@@ -1,0 +1,132 @@
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+.form-control-borderless {
+  border: none;
+}
+
+.form-control-borderless:hover,
+.form-control-borderless:active,
+.form-control-borderless:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.JStableOuter table {
+  position: relative;
+  width: 100%;
+  background-color: #fff;
+  border-collapse: collapse;
+  font-family: arial;
+  display: block;
+  height: 450px;
+  overflow: scroll;
+}
+
+.JStableOuter {
+  max-width: 1170px;
+  margin: auto;
+  border: 1px solid #999;
+}
+
+.JStableOuter thead {
+  position: relative;
+  overflow: visible;
+}
+
+.JStableOuter thead th {
+  background-color: #fff;
+  height: 32px;
+  padding: 3px 15px 0;
+  font-size: 13px;
+  vertical-align: top;
+  position: relative;
+  box-shadow: 0 1px 0px 1px #999;
+}
+
+.JStableOuter thead th p {
+  margin: 5px 0;
+  font-weight: normal;
+}
+
+.JStableOuter thead th:nth-child(1) {
+  position: relative;
+  background-color: #fff;
+  z-index: 99;
+  border-right: 1px solid #999;
+  box-shadow: 0 1px 1px 1px #999;
+  min-width: 120px;
+}
+
+.JStableOuter thead tr {
+  position: relative;
+}
+
+.JStableOuter tbody td {
+  background-color: #fff;
+  /*min-width: 120px;*/
+  border: 1px solid #999;
+  padding: 0 15px;
+  min-width: 100px;
+  font-size: 13px;
+  box-shadow: 0 1px 0px 1px #999;
+}
+
+.JStableOuter tbody tr td:nth-child(1) {
+  /*the first cell in each tr*/
+  position: relative;
+  /*display: block;*/ /*seperates the first column from the tbody*/
+  height: 40px;
+  background-color: #fff;
+  box-shadow: 0 0px 1px 1px #999;
+}
+
+.tableOuter {
+  max-width: 800px;
+  overflow: auto;
+}
+
+.negativeCost {
+  color: #f10;
+}
+
+.profitCol {
+  color: #81a65c;
+}
+
+.revenueCol {
+  color: #5484bf;
+}
+
+.JStableOuter thead th.blueHead {
+  background-color: #7b7b7b;
+  color: #fff;
+}
+
+.JStableOuter thead th.lightBlueBox,
+.JStableOuter tbody td.lightBlueBox {
+  background: #efefef;
+  border-color: #999;
+}
+
+.JStableOuter p {
+  margin: 5px 0;
+}
+
+.btnRed {
+  background: #b51a01;
+  color: #fff;
+  border-radius: 50px;
+  padding: 5px 15px;
+}
+
+.colorOrange {
+  color: #f6984a;
+}
+
+.contBox {
+  min-width: 150px;
+}
