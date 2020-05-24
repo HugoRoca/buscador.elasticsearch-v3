@@ -42,7 +42,7 @@ body {
   height: 32px;
   padding: 3px 15px 0;
   font-size: 13px;
-  vertical-align: top;
+  /* vertical-align: top; */
   position: relative;
   box-shadow: 0 1px 0px 1px #999;
 }
@@ -129,4 +129,8 @@ body {
 
 .contBox {
   min-width: 150px;
+}
+
+.textSearch {
+  min-width: 300px !important;
 }
