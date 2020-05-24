@@ -1,60 +1,480 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Searcher</title>
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/all.css">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/all.css" />
     <link rel="stylesheet" href="./css/style.css" />
-</head>
+  </head>
 
-<body class="content">
+  <body class="content">
     <div class="container">
-        <br />
-        <h1 class="text-center display-4">SEARCHER</h1>
-        <br />
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-10 col-lg-8">
-                <form class="card card-sm">
-                    <div class="card-body row no-gutters">
-                        <small>Options search <b>(required)</b></small>
-                    </div>
-                </form>
-                <br>
-                <form class="card card-sm">
-                    <div class="card-body row no-gutters">
-                        <small>Consultant <b>(optional)</b></small>
-                    </div>
-                </form>
-                <br>
-                <form class="card card-sm">
-                    <div class="card-body row no-gutters align-items-center">
-                        <div class="col-auto">
-                            <i class="fas fa-search h4 text-body"></i>
-                        </div>
-                        <div class="col">
-                            <input class="form-control-lg form-control-borderless" type="search"
-                                placeholder="Type here is required" />
-                        </div>
-                        <div class="col-auto">
-                            <button class="btn btn-lg btn-success" type="submit">
-                                Search
-                            </button>
-                        </div>
-                    </div>
-                </form>
+      <br />
+      <h1 class="text-center display-4">SEARCHER</h1>
+      <br />
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+          <form class="card card-sm">
+            <div class="card-body row no-gutters">
+              <small>Options search <b>(required)</b></small>
             </div>
+          </form>
+          <br />
+          <form class="card card-sm">
+            <div class="card-body row no-gutters">
+              <small>Consultant <b>(optional)</b></small>
+            </div>
+          </form>
+          <br />
+          <form class="card card-sm">
+            <div class="card-body row no-gutters align-items-center">
+              <div class="col-auto">
+                <i class="fas fa-search h4 text-body"></i>
+              </div>
+              <div class="col">
+                <input
+                  class="form-control-lg form-control-borderless"
+                  type="search"
+                  placeholder="Type here is required"
+                />
+              </div>
+              <div class="col-auto">
+                <button class="btn btn-lg btn-success" type="submit">
+                  Search
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
-        <table></table>
+      </div>
+      <br />
+      <div class="JStableOuter">
+        <table>
+          <thead>
+            <tr style="top: 0px;">
+              <th style="left: 0px;"></th>
+              <th class="profitCol">SCORE</th>
+              <th>Texto busqueda</th>
+              <th class="revenueCol">REVENUE</th>
+              <th>START DATE</th>
+              <th>COMPLETION DATE</th>
+              <th>ISSUE</th>
+              <th>LOST</th>
+              <th>APPROVED</th>
+              <th>INVOICE AMOUNT</th>
+              <th class="contBox">COMMENTS</th>
+
+              <th class="blueHead">RUNNING BALANCE</th>
+              <th class="blueHead">$500</th>
+              <th class="blueHead">$68,128</th>
+              <th class="blueHead">$68,638</th>
+              <th class="blueHead">
+                <span class="negativeCost btnRed"> -$79,052 </span>
+              </th>
+              <th class="blueHead">$68,638</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Project 1</td>
+              <td>
+                Macelsfield <br />
+                Macelsfield
+              </td>
+              <td class="profitCol">Cheshire</td>
+              <td class="revenueCol">52</td>
+              <td>Brewer</td>
+              <td>
+                £47,000 <br />
+                £47,000
+              </td>
+              <td>Married</td>
+              <td>2</td>
+              <td>John Smith</td>
+              <td>
+                Macelsfield <br />
+                Macelsfield
+              </td>
+              <td>Provide contextual feedback messages for typical</td>
+
+              <td class="lightBlueBox">
+                <p class="revenueCol">REV</p>
+                <p>COST</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="colorOrange">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="colorOrange">$2,000</p>
+                <p>-1,500</p>
+              </td>
+            </tr>
+            <tr>
+              <td>Project 2</td>
+              <td>Threlkeld</td>
+              <td class="profitCol">Cumbria</td>
+              <td class="revenueCol">34</td>
+              <td>Shepherdess</td>
+              <td>£28,000</td>
+              <td>Single</td>
+              <td>0</td>
+              <td>Jenny Jones</td>
+              <td>Threlkeld</td>
+              <td>Cumbria</td>
+
+              <td class="lightBlueBox">
+                <p class="revenueCol">REV</p>
+                <p>COST</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+            </tr>
+            <tr>
+              <td>Project 3</td>
+              <td>Avebury</td>
+              <td class="profitCol">Wiltshire</td>
+              <td class="revenueCol">57</td>
+              <td>Musician</td>
+              <td>£124,000</td>
+              <td>Married</td>
+              <td>4</td>
+              <td>Peter Frampton</td>
+              <td>Avebury</td>
+              <td>Wiltshire</td>
+
+              <td class="lightBlueBox">
+                <p class="revenueCol">REV</p>
+                <p>COST</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+            </tr>
+            <tr>
+              <td>Project 4</td>
+              <td>Malvern</td>
+              <td class="profitCol">Worchestershire</td>
+              <td class="revenueCol">48</td>
+              <td>Naturalist</td>
+              <td>£65,000</td>
+              <td>Married</td>
+              <td>2</td>
+              <td>Peter Frampton</td>
+              <td>Avebury</td>
+              <td>Wiltshire</td>
+
+              <td class="lightBlueBox">
+                <p class="revenueCol">REV</p>
+                <p>COST</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+            </tr>
+            <tr>
+              <td>Project 5</td>
+              <td>St Albans</td>
+              <td class="profitCol">Hertfordshire</td>
+              <td class="revenueCol">67</td>
+              <td>Pharmasist</td>
+              <td>Retired</td>
+              <td>Married</td>
+              <td>3</td>
+              <td>Peter Frampton</td>
+              <td>Avebury</td>
+              <td>Wiltshire</td>
+
+              <td class="lightBlueBox">
+                <p class="revenueCol">REV</p>
+                <p>COST</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+            </tr>
+            <tr>
+              <td>Project 6</td>
+              <td>Edinburgh</td>
+              <td class="profitCol">Lothian</td>
+              <td class="revenueCol">36</td>
+              <td>Vigilante</td>
+              <td>£86,000</td>
+              <td>Single</td>
+              <td>Unknown</td>
+              <td>Peter Frampton</td>
+              <td>Avebury</td>
+              <td>Wiltshire</td>
+
+              <td class="lightBlueBox">
+                <p class="revenueCol">REV</p>
+                <p>COST</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+            </tr>
+            <tr>
+              <td>Project 7</td>
+              <td>Bedford</td>
+              <td class="profitCol">Bedfordshire</td>
+              <td class="revenueCol">43</td>
+              <td>Housewife</td>
+              <td>N/A</td>
+              <td>Married</td>
+              <td>1</td>
+              <td>Peter Frampton</td>
+              <td>Avebury</td>
+              <td>Wiltshire</td>
+
+              <td class="lightBlueBox">
+                <p class="revenueCol">REV</p>
+                <p>COST</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+            </tr>
+            <tr>
+              <td>Project 8</td>
+              <td>Manhattan</td>
+              <td class="profitCol">New York</td>
+              <td class="revenueCol">55</td>
+              <td>Policewoman</td>
+              <td>$36,000</td>
+              <td>Single</td>
+              <td>1</td>
+              <td>Peter Frampton</td>
+              <td>Avebury</td>
+              <td>Wiltshire</td>
+
+              <td class="lightBlueBox">
+                <p class="revenueCol">REV</p>
+                <p>COST</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+            </tr>
+            <tr>
+              <td>Project 9</td>
+              <td>Bolingbroke</td>
+              <td class="profitCol">Lincolnshire</td>
+              <td class="revenueCol">45</td>
+              <td>Landowner</td>
+              <td>Lots</td>
+              <td>Married</td>
+              <td>6</td>
+              <td>Peter Frampton</td>
+              <td>Avebury</td>
+              <td>Wiltshire</td>
+
+              <td class="lightBlueBox">
+                <p class="revenueCol">REV</p>
+                <p>COST</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+            </tr>
+            <tr>
+              <td>Project 10</td>
+              <td>Alderley</td>
+              <td class="profitCol">Cheshire</td>
+              <td class="revenueCol">352</td>
+              <td>Arcanist</td>
+              <td>A pile of gems</td>
+              <td>Single</td>
+              <td>0</td>
+              <td>Peter Frampton</td>
+              <td>Avebury</td>
+              <td>Wiltshire</td>
+
+              <td class="lightBlueBox">
+                <p class="revenueCol">REV</p>
+                <p>COST</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="colorOrange">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+              <td class="lightBlueBox">
+                <p class="revenueCol">$2,000</p>
+                <p>-1,500</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <script src="./js/jquery-3.5.1.slim.min.js"></script>
     <script src="./js/popper.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/table.js"></script>
-</body>
-
+  </body>
 </html>

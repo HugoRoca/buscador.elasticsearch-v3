@@ -1,0 +1,390 @@
+https://bootsnipp.com/snippets/lV892
+
+
+.JStableOuter table {
+  position: relative;
+  width: 100%;
+  background-color: #fff;
+  border-collapse: collapse;
+  font-family: arial;
+  display: block;
+  height: 450px;
+  overflow: scroll;
+}
+
+.JStableOuter {
+  max-width: 1170px;
+  margin: auto;
+  border: 1px solid #999;
+}
+
+.JStableOuter thead {
+  position: relative;
+  overflow: visible;
+}
+
+.JStableOuter thead th {
+  background-color: #fff;
+  height: 32px;
+  padding: 3px 15px 0;
+  font-size: 13px;
+  vertical-align: top;
+  position: relative;
+  box-shadow: 0 1px 0px 1px #999;
+}
+
+.JStableOuter thead th p {
+  margin: 5px 0;
+  font-weight: normal;
+}
+
+.JStableOuter thead th:nth-child(1) {
+  position: relative;
+  background-color: #fff;
+  z-index: 99;
+  border-right: 1px solid #999;
+  box-shadow: 0 1px 1px 1px #999;
+  min-width: 120px;
+}
+
+.JStableOuter thead tr {
+  position: relative;
+}
+
+.JStableOuter tbody td {
+  background-color: #fff;
+  /*min-width: 120px;*/
+  border: 1px solid #999;
+  padding: 0 15px;
+  min-width: 100px;
+  font-size: 13px;
+  box-shadow: 0 1px 0px 1px #999;
+}
+
+.JStableOuter tbody tr td:nth-child(1) {
+  /*the first cell in each tr*/
+  position: relative;
+  /*display: block;*/ /*seperates the first column from the tbody*/
+  height: 40px;
+  background-color: #fff;
+  box-shadow: 0 0px 1px 1px #999;
+}
+
+.tableOuter {
+  max-width: 800px;
+  overflow: auto;
+}
+
+.negativeCost {
+  color: #f10;
+}
+
+.profitCol {
+  color: #81a65c;
+}
+
+.revenueCol {
+  color: #5484bf;
+}
+
+.JStableOuter thead th.blueHead {
+  background-color: #7b7b7b;
+  color: #fff;
+}
+
+.JStableOuter thead th.lightBlueBox,
+.JStableOuter tbody td.lightBlueBox {
+  background: #efefef;
+  border-color: #999;
+}
+
+.JStableOuter p {
+  margin: 5px 0;
+}
+
+.btnRed {
+  background: #b51a01;
+  color: #fff;
+  border-radius: 50px;
+  padding: 5px 15px;
+}
+
+.colorOrange {
+  color: #f6984a;
+}
+
+.contBox {
+  min-width: 150px;
+}
+
+***********************
+
+$(document).ready(function () {
+    $('.JStableOuter table').scroll(function (e) {
+        $('.JStableOuter thead').css("left", -$(".JStableOuter tbody").scrollLeft());
+        $('.JStableOuter thead th:nth-child(1)').css("left", $(".JStableOuter table").scrollLeft() - 0);
+        $('.JStableOuter tbody td:nth-child(1)').css("left", $(".JStableOuter table").scrollLeft());
+
+        $('.JStableOuter thead').css("top", -$(".JStableOuter tbody").scrollTop());
+        $('.JStableOuter thead tr th').css("top", $(".JStableOuter table").scrollTop());
+    });
+});
+
+***********************
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+  <div class="JStableOuter" >
+  <table>
+    <thead>
+      <tr style="top: 0px" >
+        <th style="left: 0px" ></th>
+        <th>COST </th>
+        <th class="profitCol" >PROFIT </th>
+        <th class="revenueCol" >REVENUE </th>
+        <th>START DATE</th>
+        <th>COMPLETION DATE</th>
+        <th>ISSUE </th>
+        <th>LOST </th>
+        <th>APPROVED </th>
+        <th>INVOICE AMOUNT </th>
+        <th class="contBox" >COMMENTS</th>
+
+        <th class="blueHead" >RUNNING BALANCE</th>
+        <th class="blueHead" > $500 </th>
+        <th class="blueHead" > $68,128 </th>
+        <th class="blueHead" > $68,638 </th>
+        <th class="blueHead" > <span class="negativeCost btnRed" > -$79,052 </span> </th>
+        <th class="blueHead" > $68,638 </th>
+
+      </tr>
+      <tr style="top: 0px" >
+        <th style="left: 0px" ></th>
+        <th> <p> $16,417,480 </p> </th>
+        <th class="profitCol" > <p> $2,412,287 </p> </th>
+        <th class="revenueCol" > <p> $18,829,767 </p> </th>
+        <th></th>
+        <th></th>
+        <th> <p> $748,371 </p> </th>
+        <th> <p> $249,938 </p> </th>
+        <th> <p> $17,831,458 </p> </th>
+        <th> <p>$150,825</p> </th>
+        <th></th>
+
+        <th class="lightBlueBox" >P/L</th>
+        <th class="lightBlueBox" > <p>Dec 16</p> <span class="profitCol" >$500</span> </th>
+        <th class="lightBlueBox" >  <p>Dec 17</p> <span class="profitCol" >$68,128</span> </th>
+        <th class="lightBlueBox" >  <p>Dec 17</p> <span class="profitCol" >$68,638</span> </th>
+        <th class="lightBlueBox" >  <p>Dec 17</p><span class="negativeCost" > -$79,052 </span> </th>
+         <th class="lightBlueBox" >  <p>Dec 17</p> <span class="profitCol" >$68,638</span> </th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Project 1</td>
+        <td>Macelsfield <br> Macelsfield</td>
+        <td class="profitCol" >Cheshire</td>
+        <td class="revenueCol" >52</td>
+        <td>Brewer</td>
+        <td>£47,000 <br> £47,000</td>
+        <td>Married</td>
+        <td>2</td>
+        <td>John Smith</td>
+        <td>Macelsfield <br> Macelsfield</td>
+        <td>Provide contextual feedback messages for typical</td>
+
+        <td class="lightBlueBox" ><p class="revenueCol" >REV</p><p>COST</p></td>
+        <td class="lightBlueBox" ><p class="colorOrange" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="colorOrange" >$2,000</p><p>-1,500</p></td>
+      </tr>
+      <tr>
+        <td>Project 2</td>
+        <td>Threlkeld</td>
+        <td class="profitCol" >Cumbria</td>
+        <td class="revenueCol" >34</td>
+        <td>Shepherdess</td>
+        <td>£28,000</td>
+        <td>Single</td>
+        <td>0</td>
+        <td>Jenny Jones</td>
+        <td>Threlkeld</td>
+        <td>Cumbria</td>
+
+        <td class="lightBlueBox" ><p class="revenueCol" >REV</p><p>COST</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+      </tr>
+      <tr>
+        <td>Project 3</td>
+        <td>Avebury</td>
+        <td class="profitCol" >Wiltshire</td>
+        <td class="revenueCol" >57</td>
+        <td>Musician</td>
+        <td>£124,000</td>
+        <td>Married</td>
+        <td>4</td>
+        <td>Peter Frampton</td>
+        <td>Avebury</td>
+        <td>Wiltshire</td>
+
+        <td class="lightBlueBox" ><p class="revenueCol" >REV</p><p>COST</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+      </tr>
+      <tr>
+        <td>Project 4</td>
+        <td>Malvern</td>
+        <td class="profitCol" >Worchestershire</td>
+        <td class="revenueCol" >48</td>
+        <td>Naturalist</td>
+        <td>£65,000</td>
+        <td>Married</td>
+        <td>2</td>
+        <td>Peter Frampton</td>
+        <td>Avebury</td>
+        <td>Wiltshire</td>
+
+        <td class="lightBlueBox" ><p class="revenueCol" >REV</p><p>COST</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+      </tr>
+      <tr>
+        <td>Project 5</td>
+        <td>St Albans</td>
+        <td class="profitCol" >Hertfordshire</td>
+        <td class="revenueCol" >67</td>
+        <td>Pharmasist</td>
+        <td>Retired</td>
+        <td>Married</td>
+        <td>3</td>
+        <td>Peter Frampton</td>
+        <td>Avebury</td>
+        <td>Wiltshire</td>
+
+        <td class="lightBlueBox" ><p class="revenueCol" >REV</p><p>COST</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+      </tr>
+      <tr>
+        <td>Project 6</td>
+        <td>Edinburgh</td>
+        <td class="profitCol" >Lothian </td>
+        <td class="revenueCol" >36</td>
+        <td>Vigilante</td>
+        <td>£86,000</td>
+        <td>Single</td>
+        <td>Unknown</td>
+        <td>Peter Frampton</td>
+        <td>Avebury</td>
+        <td>Wiltshire</td>
+
+        <td class="lightBlueBox" ><p class="revenueCol" >REV</p><p>COST</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+      </tr>
+      <tr>
+        <td>Project 7</td>
+        <td>Bedford</td>
+        <td class="profitCol" >Bedfordshire</td>
+        <td class="revenueCol" >43</td>
+        <td>Housewife</td>
+        <td>N/A</td>
+        <td>Married</td>
+        <td>1</td>
+        <td>Peter Frampton</td>
+        <td>Avebury</td>
+        <td>Wiltshire</td>
+
+        <td class="lightBlueBox" ><p class="revenueCol" >REV</p><p>COST</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+      </tr>
+      <tr>
+        <td>Project 8</td>
+        <td>Manhattan</td>
+        <td class="profitCol" >New York</td>
+        <td class="revenueCol" >55</td>
+        <td>Policewoman</td>
+        <td>$36,000</td>
+        <td>Single</td>
+        <td>1</td>
+        <td>Peter Frampton</td>
+        <td>Avebury</td>
+        <td>Wiltshire</td>
+
+        <td class="lightBlueBox" ><p class="revenueCol" >REV</p><p>COST</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+      </tr>
+      <tr>
+        <td>Project 9</td>
+        <td>Bolingbroke</td>
+        <td class="profitCol" >Lincolnshire</td>
+        <td class="revenueCol" >45</td>
+        <td>Landowner</td>
+        <td>Lots</td>
+        <td>Married</td>
+        <td>6</td>
+        <td>Peter Frampton</td>
+        <td>Avebury</td>
+        <td>Wiltshire</td>
+
+        <td class="lightBlueBox" ><p class="revenueCol" >REV</p><p>COST</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+      </tr>
+      <tr>
+        <td>Project 10</td>
+        <td>Alderley</td>
+        <td class="profitCol" >Cheshire</td>
+        <td class="revenueCol" >352</td>
+        <td>Arcanist</td>
+        <td>A pile of gems</td>
+        <td>Single</td>
+        <td>0</td>
+        <td>Peter Frampton</td>
+        <td>Avebury</td>
+        <td>Wiltshire</td>
+
+        <td class="lightBlueBox" ><p class="revenueCol" >REV</p><p>COST</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="colorOrange" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+        <td class="lightBlueBox" ><p class="revenueCol" >$2,000</p><p>-1,500</p></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
