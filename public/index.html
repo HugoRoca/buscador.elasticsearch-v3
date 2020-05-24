@@ -27,16 +27,19 @@
         <div class="table-title">
           <div class="row">
             <div class="col-sm-8">
-              <small>Add fields is <b class="text-danger">required</b></small>
+              <small
+                >Step 1: Add fields is
+                <b class="text-danger">required</b></small
+              >
             </div>
             <div class="col-sm-4">
-              <button type="button" class="btn btn-success btn-lg add-new">
+              <button type="button" id="add-new-field" class="btn btn-success btn-lg add-new">
                 <i class="fa fa-plus"></i> Add new
               </button>
             </div>
           </div>
         </div>
-        <table class="table table-bordered table-add tg">
+        <table class="table table-bordered table-fields tg">
           <thead>
             <tr>
               <th>Field</th>
@@ -47,11 +50,38 @@
           <tbody></tbody>
         </table>
       </div>
+      <div class="table-wrapper card card-sm">
+        <div class="table-title">
+          <div class="row">
+            <div class="col-sm-8">
+              <small
+                >Step 2: Configure order is
+                <b class="text-danger">required</b></small
+              >
+            </div>
+            <div class="col-sm-4">
+              <button type="button" id="add-new-order" class="btn btn-success btn-lg add-new">
+                <i class="fa fa-plus"></i> Add new
+              </button>
+            </div>
+          </div>
+        </div>
+        <table class="table table-bordered table-orders tg">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Asc or desc</th>
+              <th>Priority</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
       <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8">
           <form class="card card-sm">
             <div class="card-body row no-gutters">
-              <small>Consultant <b>(optional)</b></small>
+              <small>Step 3: Adding consultant data is <b>optional</b></small>
             </div>
           </form>
           <br />
@@ -64,11 +94,17 @@
                 <input
                   class="form-control-lg form-control-borderless"
                   type="search"
-                  placeholder="Type here is required"
+                  placeholder="Write the word to search"
+                  id="txtSearch"
+                  style="width: 350px;"
                 />
               </div>
               <div class="col-auto">
-                <button class="btn btn-lg btn-success" type="submit">
+                <button
+                  class="btn btn-lg btn-success"
+                  id="btnSearch"
+                  type="button"
+                >
                   Search
                 </button>
               </div>
@@ -77,7 +113,7 @@
         </div>
       </div>
       <br />
-      <div class="JStableOuter">
+      <div class="JStableOuter card">
         <table>
           <thead>
             <tr style="top: 0px;">
@@ -123,7 +159,7 @@
         </table>
       </div>
     </div>
-    <br>
+    <br />
     <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
       <div class="container text-center">
         <small>By powered Hugo Roca | 2020 | team buscador</small>

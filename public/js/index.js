@@ -2,9 +2,9 @@ $(document).ready(function () {
     var dataLocal = [];
     localStorage.setItem("fields", JSON.stringify(dataLocal));
     $('[data-toggle="tooltip"]').tooltip();
-    $(".add-new").click(function () {
+    $("#add-new-field").click(function () {
         $(this).attr("disabled", "disabled");
-        var index = $(".table-add tbody tr:last-child").index();
+        var index = $(".table-fields tbody tr:last-child").index();
         var row =
             "" +
             '<tr id="tr1">' +
@@ -54,15 +54,15 @@ $(document).ready(function () {
             '<input class="form-control" type="number" id="importance_synonym" min="0" max="100" value="0">' +
             "</td>" +
             "</tr>";
-        $(".table-add").append(row);
-        $(".table-add tbody tr")
+        $(".table-fields").append(row);
+        $(".table-fields tbody tr")
             .eq(index + 1)
             .find(".add")
             .toggle();
         $('[data-toggle="tooltip"]').tooltip();
     });
 
-    $(document).on("click", ".add", function () {
+    $(".table-fields").on("click", ".add", function () {
         var dataLocal = localStorage.getItem("fields");
         dataLocal =
             dataLocal === undefined || dataLocal === null
@@ -116,14 +116,14 @@ $(document).ready(function () {
             field +
             '</td><td colspan="2">' +
             JSON.stringify(addField.analyzers) +
-            '</td><td><a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a></td></tr>';
-        $(".table-add").append(row);
+            '</td><td class="tg-nrix"><a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a></td></tr>';
+        $(".table-fields").append(row);
         $('[data-toggle="tooltip"]').tooltip();
-        $(".add-new").removeAttr("disabled");
+        $("#add-new-field").removeAttr("disabled");
         $("#tr1,#tr2,#tr3,.tooltip").remove();
     });
 
-    $(document).on("click", ".delete", function () {
+    $(".table-fields").on("click", ".delete", function () {
         var dataLocal = localStorage.getItem("fields");
         dataLocal =
             dataLocal === undefined || dataLocal === null
@@ -139,7 +139,7 @@ $(document).ready(function () {
 
         $(this).parents("tr").remove();
 
-        $(".add-new").removeAttr("disabled");
+        $("#add-new-field").removeAttr("disabled");
         $("#tr1,#tr2,#tr3,.tooltip").remove();
     });
 });
