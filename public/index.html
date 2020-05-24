@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Searcher</title>
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/all.css" />
     <link rel="stylesheet" href="./css/style.css" />
@@ -15,6 +23,31 @@
       <br />
       <h1 class="text-center display-4">SEARCHER</h1>
       <br />
+      <div class="table-wrapper">
+        <div class="table-title">
+          <div class="row">
+            <div class="col-sm-8">
+              <h2>Add fields <small class="text-danger">required</small></h2>
+            </div>
+            <div class="col-sm-4">
+              <button type="button" class="btn btn-info add-new">
+                <i class="fa fa-plus"></i> Add new
+              </button>
+            </div>
+          </div>
+        </div>
+        <table class="table table-bordered table-add tg">
+          <thead>
+            <tr>
+              <th>Field</th>
+              <th>Analyzer and Importence</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
       <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8">
           <form class="card card-sm">
@@ -72,7 +105,12 @@
             <tr>
               <td>OPM</td>
               <td class="profitCol">654.654</td>
-              <td class="textSearch">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut neque porro et soluta assumenda. Ullam, ea? Ex nulla fugit vel hic provident labore, error dolor eos placeat sunt, omnis expedita.</td>
+              <td class="textSearch">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut
+                neque porro et soluta assumenda. Ullam, ea? Ex nulla fugit vel
+                hic provident labore, error dolor eos placeat sunt, omnis
+                expedita.
+              </td>
               <td class="revenueCol">52</td>
               <td>Brewer</td>
               <td>
@@ -97,5 +135,117 @@
     <script src="./js/popper.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/table.js"></script>
+    <script src="./js//index.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+        $(".add-new").click(function () {
+          $(this).attr("disabled", "disabled");
+          var index = $(".table-add tbody tr:last-child").index();
+          var row = '' +
+          '<tr>' +
+            '<td class="tg-nrix" rowspan="3">' +
+              '<select name="fields" id="fields" class="form-control">'+
+                '<option value="categorias">Categoría</option>'+
+                '<option value="textoBusqueda">Texto busqueda</option>'+
+                '<option value="marcas">Marcas</option>'+
+                '<option value="lineas">Lineas</option>'+
+                '<option value="grupoArticulos">Grupo articulos</option>'+
+                '<option value="seccion1">Sección</option>'+
+              '</select>'+
+            '</td>'+
+            '<td>'+
+              '<div class="form-check form-check-inline">'+
+                '<input class="form-check-input" type="checkbox" id="ngram" value="option1">'+
+                '<label class="form-check-label" for="ngram">ngram</label>'+
+              '</div>'+
+            '</td>'+
+            '<td>'+
+              '<input class="form-control" type="number" id="importance_ngram" min="0" max="100" value="0">'+
+            '</td>'+
+            '<td class="tg-nrix" rowspan="3">'+
+              '<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>'+
+              '<a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>'+
+            '</td>'+
+          '</tr>'+
+          '<tr>'+
+            '<td>'+
+              '<div class="form-check form-check-inline">'+
+                '<input class="form-check-input" type="checkbox" id="phonetic" value="option2">'+
+                '<label class="form-check-label" for="phonetic">phonetic</label>'+
+              '</div>'+
+            '</td>'+
+            '<td>'+
+              '<input class="form-control" type="number" id="importance_phonetic" min="0" max="100" value="0">'+
+            '</td>'+
+          '</tr>'+
+          '<tr>'+
+            '<td>'+
+              '<div class="form-check form-check-inline">'+
+                '<input class="form-check-input" type="checkbox" id="synonym" value="option3">'+
+                '<label class="form-check-label" for="synonym">synonym</label>'+
+              '</div>'+
+            '</td>'+
+            '<td>'+
+              '<input class="form-control" type="number" id="importance_synonym" min="0" max="100" value="0">'+
+            '</td>'+
+          '</tr>';
+          $(".table-add").append(row);
+          $(".table-add tbody tr")
+            .eq(index + 1)
+            .find(".add")
+            .toggle();
+          $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        $(document).on("click", ".add", function () {
+          var dataLocal = localStorage.getItem('fields')
+          console.log(dataLocal);
+          dataLocal = dataLocal === undefined || dataLocal === null ? [] : JSON.parse(dataLocal)
+          var field = $(this).parents("tr").find("#fields option:selected").val()
+          var analyzer_ngram = $('input[id="ngram"]').is(':checked')
+          var analyzer_synonym = $('input[id="synonym"]').is(':checked')
+          var analyzer_phonetic = $('input[id="phonetic"]').is(':checked')
+          var importance_ngram = $('input[id="importance_ngram"]').val()
+          var importance_synonym = $('input[id="importance_synonym"]').val()
+          var importance_phonetic = $('input[id="importance_phonetic"]').val()
+          var analyzers = []
+
+          if (analyzer_ngram) analyzers.push({analyzer: 'ngram', impportance: importance_ngram})
+          if (analyzer_synonym) analyzers.push({analyzer: 'synonym', impportance: importance_synonym})
+          if (analyzer_phonetic) analyzers.push({analyzer: 'phonetic', impportance: importance_phonetic})
+
+          var addField = { field, analyzers}
+          
+          dataLocal.push(addField)
+          localStorage.setItem("fields", JSON.stringify(dataLocal))
+          console.log(localStorage.getItem('fields'))
+          
+          //$(this).parent("td").html(JSON.stringify(addField));
+
+          $(this).parents("tr").find(".add, .edit").toggle();
+          $(".add-new").removeAttr("disabled");
+          // var empty = false;
+          // var input = $(this).parents('tr').children().find('#phonetic');
+          // console.log(input)
+          // input.each(function () {
+          //   if (!$(this).val()) {
+          //     $(this).addClass("error");
+          //     empty = true;
+          //   } else {
+          //     $(this).removeClass("error");
+          //   }
+          // });
+          // $(this).parents("tr").find(".error").first().focus();
+          // if (!empty) {
+          // }
+        });
+
+        $(document).on("click", ".delete", function () {
+          $(this).parents("tr").remove();
+          $(".add-new").removeAttr("disabled");
+        });
+      });
+    </script>
   </body>
 </html>
