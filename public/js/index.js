@@ -135,18 +135,9 @@ $(document).ready(function () {
             }
         }
 
-        if (analyzer_ngram)
-            analyzers.push({ analyzer: "ngram", importance: importance_ngram });
-        if (analyzer_synonym)
-            analyzers.push({
-                analyzer: "synonym",
-                importance: importance_synonym,
-            });
-        if (analyzer_phonetic)
-            analyzers.push({
-                analyzer: "phonetic",
-                importance: importance_phonetic,
-            });
+        if (analyzer_ngram) analyzers.push({ analyzer: "ngram", importance: importance_ngram });
+        if (analyzer_synonym) analyzers.push({ analyzer: "synonym", importance: importance_synonym });
+        if (analyzer_phonetic) analyzers.push({ analyzer: "phonetic", importance: importance_phonetic });
 
         var addField = { field: field_value, analyzers };
 
@@ -155,13 +146,13 @@ $(document).ready(function () {
 
         $('[data-toggle="tooltip"]').tooltip();
         var row =
-            '<tr><td class="tg-nrix"><input id="id" type="hidden" value="' +
-            field_name +
-            '"/>' +
-            field_name +
-            '</td><td colspan="2">' +
-            JSON.stringify(addField.analyzers) +
-            '</td><td class="tg-nrix"><a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a></td></tr>';
+            '<tr>'+
+                '<td class="tg-nrix"><input id="id" type="hidden" value="' + field_name + '"/>' + field_name + '</td>'+
+                '<td colspan="2">' + JSON.stringify(addField.analyzers) + '</td>'+
+                '<td class="tg-nrix">'+
+                    '<a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>'+
+                '</td>'+
+            '</tr>';
         $(".table-fields").append(row);
         $('[data-toggle="tooltip"]').tooltip();
         $("#add-new-field").removeAttr("disabled");
@@ -239,5 +230,22 @@ $(document).ready(function () {
 
         $("#add-new-field").removeAttr("disabled");
         $("#tr1_field,#tr2_field,#tr3_field,.tooltip").remove();
+    });
+
+    $(".table-orders").on("click", ".delete", function () {
+        var dataLocal = localStorage.getItem("orders");
+        dataLocal = dataLocal === undefined || dataLocal === null ? [] : JSON.parse(dataLocal);
+        var id = $(this).parents("tr").find('input[id="id"]').val();
+
+        var newDataLocal = $.grep(dataLocal, (e) => {
+            return e.order !== id;
+        });
+
+        localStorage.setItem("orders", JSON.stringify(newDataLocal));
+
+        $(this).parents("tr").remove();
+
+        $("#add-new-field").removeAttr("disabled");
+        $("#tr1_order,.tooltip").remove();
     });
 });
