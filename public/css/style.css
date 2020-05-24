@@ -23,7 +23,7 @@ body {
   width: 100%;
   background-color: #fff;
   border-collapse: collapse;
-  font-family: arial;
+  /* font-family: arial; */
   display: block;
   height: 450px;
   overflow: scroll;
@@ -140,7 +140,7 @@ body {
 
 /****/
 .table-wrapper {
-  /* width: 700px; */
+  width: 728px;
   margin: 30px auto;
   background: #fff;
   padding: 20px;
@@ -156,12 +156,12 @@ body {
 }
 .table-title .add-new {
   float: right;
-  height: 30px;
+  /* height: 30px; */
   font-weight: bold;
   font-size: 12px;
   text-shadow: none;
   min-width: 100px;
-  border-radius: 50px;
+  /* border-radius: 50px; */
   line-height: 13px;
 }
 .table-title .add-new i {
@@ -226,4 +226,8 @@ table.table td .add {
 .tg .tg-0lax {
   text-align: left;
   vertical-align: top;
+}
+
+#sticky-footer {
+  flex-shrink: none;
 }
