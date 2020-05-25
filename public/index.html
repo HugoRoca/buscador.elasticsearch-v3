@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Searcher</title>
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./css/all.css" />
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/loader.css">
+    <link rel="stylesheet" href="./css/loader.css" />
   </head>
   <body class="content">
     <div class="cargaPantalla">
@@ -24,10 +35,87 @@
         <div class="table-title">
           <div class="row">
             <div class="col-sm-8">
-              <small>Step 1: Add fields is <b class="text-danger">required</b></small>
+              <small>Step 0: Setting</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="opcion-index">Campaing:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="Campaing"
+                value="202006"
+              />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="opcion-index">Country:</label>
+              <select class="form-control" id="country">
+                <option value="PE">Perú</option>
+                <option value="CL">Chile</option>
+                <option value="CR">Costa Rica</option>
+                <option value="GT">Guatemala</option>
+                <option value="CO">Colombia</option>
+                <option value="PA">Panamá</option>
+                <option value="SV">Salvador</option>
+                <option value="DO">Dominicana</option>
+                <option value="MX">Mexico</option>
+                <option value="EC">Ecuador</option>
+                <option value="BO">Bolivia</option>
+                <option value="PR">Puerto Rico</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="opcion-index">Size:</label>
+              <input type="text" class="form-control" id="size" value="20" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="opcion-index">Type:</label>
+              <select class="form-control" id="type">
+                <option value="best_fields">best_fields</option>
+                <option value="most_fields">most_fields</option>
+                <option value="cross_fields">cross_fields</option>
+                <option value="phrase">phrase</option>
+                <option value="phrase_prefix">phrase_prefix</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="opcion-index">Operator:</label>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="operator"/>
+              <label class="form-check-label" for="operator">
+                and
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="table-wrapper card card-sm">
+        <div class="table-title">
+          <div class="row">
+            <div class="col-sm-8">
+              <small
+                >Step 1: Add fields is
+                <b class="text-danger">required</b></small
+              >
             </div>
             <div class="col-sm-4">
-              <button type="button" id="add-new-field" class="btn btn-success btn-lg add-new">
+              <button
+                type="button"
+                id="add-new-field"
+                class="btn btn-success btn-lg add-new"
+              >
                 <i class="fa fa-plus"></i> Add new
               </button>
             </div>
@@ -48,10 +136,17 @@
         <div class="table-title">
           <div class="row">
             <div class="col-sm-8">
-              <small>Step 2: Configure order is <b class="text-danger">required</b></small>
+              <small
+                >Step 2: Configure order is
+                <b class="text-danger">required</b></small
+              >
             </div>
             <div class="col-sm-4">
-              <button type="button" id="add-new-order" class="btn btn-success btn-lg add-new">
+              <button
+                type="button"
+                id="add-new-order"
+                class="btn btn-success btn-lg add-new"
+              >
                 <i class="fa fa-plus"></i> Add new
               </button>
             </div>
@@ -76,12 +171,12 @@
               <small>Step 3: Adding consultant data is <b>optional</b></small>
             </div>
           </div>
-        </div>        
+        </div>
         <div class="form-group row">
           <div class="col-md-3">
             <div class="form-group">
               <label for="opcion-index">Código Consultora:</label>
-              <input type="text" class="form-control" id="codigoConsultora"/>
+              <input type="text" class="form-control" id="codigoConsultora" />
             </div>
           </div>
           <div class="col-md-3">
@@ -93,7 +188,12 @@
           <div class="col-md-3">
             <div class="form-group">
               <label for="opcion-index">Personalizaciónes:</label>
-              <input type="text" class="form-control" placeholder="OPM,PAD,SR..." id="personalizaciones"/>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="OPM,PAD,SR..."
+                id="personalizaciones"
+              />
             </div>
           </div>
           <div class="col-md-3">
@@ -106,7 +206,12 @@
         <div class="form-group row">
           <div class="col-md-2">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="sociaEmpresaria"/>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="sociaEmpresaria"
+              />
               <label class="form-check-label" for="sociaEmpresaria">
                 Socia Empresaria
               </label>
@@ -114,7 +219,12 @@
           </div>
           <div class="col-md-2">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="suscripcionActiva"/>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="suscripcionActiva"
+              />
               <label class="form-check-label" for="suscripcionActiva">
                 Suscripcion Activa
               </label>
@@ -122,7 +232,12 @@
           </div>
           <div class="col-md-2">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="mdo"/>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="mdo"
+              />
               <label class="form-check-label" for="mdo">
                 MDO
               </label>
@@ -130,7 +245,12 @@
           </div>
           <div class="col-md-2">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="rd"/>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="rd"
+              />
               <label class="form-check-label" for="rd">
                 RD
               </label>
@@ -138,7 +258,12 @@
           </div>
           <div class="col-md-2">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="rdi"/>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="rdi"
+              />
               <label class="form-check-label" for="rdi">
                 RDI
               </label>
@@ -146,7 +271,12 @@
           </div>
           <div class="col-md-2">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="rdr"/>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="rdr"
+              />
               <label class="form-check-label" for="rdr">
                 RDR
               </label>
@@ -162,10 +292,22 @@
                 <i class="fas fa-search h4 text-body"></i>
               </div>
               <div class="col">
-                <input class="form-control-lg form-control-borderless" type="search" placeholder="Write the word to search" id="txtSearch" style="width: 350px;"/>
+                <input
+                  class="form-control-lg form-control-borderless"
+                  type="search"
+                  placeholder="Write the word to search"
+                  id="txtSearch"
+                  style="width: 350px;"
+                />
               </div>
               <div class="col-auto">
-                <button class="btn btn-lg btn-success" id="btnSearch" type="button">Search</button>
+                <button
+                  class="btn btn-lg btn-success"
+                  id="btnSearch"
+                  type="button"
+                >
+                  Search
+                </button>
               </div>
             </div>
           </form>
@@ -173,11 +315,12 @@
       </div>
       <br />
       <div class="JStableOuter card">
-        <table>
+        <table class="tg">
           <thead>
             <tr style="top: 0px;">
               <th style="left: 0px;"></th>
               <th class="profitCol">SCORE</th>
+              <th>CUV</th>
               <th>TEXTO BUSQUEDA</th>
               <th>CATEGORIAS</th>
               <th>MARCAS</th>
@@ -201,8 +344,16 @@
       </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
     <script src="./js/table.js"></script>
     <script src="./js//index.js"></script>
     <script src="./js//elasticsearch.js"></script>

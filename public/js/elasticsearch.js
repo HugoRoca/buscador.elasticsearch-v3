@@ -12,7 +12,7 @@ const elastic = (() => {
         chkRdi: $("#rdi"),
         chkRdr: $("#rdr"),
         btnSearch: $("#btnSearch"),
-        tblLista: $('#tblLista')
+        tblLista: $('#tblListas')
     }
 
     const _util = {
@@ -35,18 +35,19 @@ const elastic = (() => {
                 const score = data[i]._score
                 const item = data[i]._source
                 tabla += '<tr>'
-                tabla += '<td>'+item.tipoPersonalizacion+'</td>'
-                tabla += '<td>'+score+'</td>'
-                tabla += '<td>'+item.textoBusqueda+'</td>'
-                tabla += '<td>'+JSON.stringify(item.categorias)+'</td>'
-                tabla += '<td>'+JSON.stringify(item.marcas)+'</td>'
-                tabla += '<td>'+JSON.stringify(item.lineas)+'</td>'
-                tabla += '<td>'+JSON.stringify(item.grupoArticulos)+'</td>'
-                tabla += '<td>'+item.seccion1+'</td>'
-                tabla += '<td>'+item.precio+'</td>'
-                tabla += '<td>'+item.ganancia+'</td>'
-                tabla += '<td>'+item.ordenEstrategia+'</td>'
-                table += '<td>'+item.orden+'</td>'
+                tabla += '<td class="tg-nrix">' + item.tipoPersonalizacion + '</td>'
+                tabla += '<td class="tg-nrix profitCol">' + score + '</td>'
+                tabla += '<td class="tg-nrix">'+item.cuv+'</td>'
+                tabla += '<td class="textSearch">' + item.textoBusqueda + '</td>'
+                tabla += '<td>' + JSON.stringify(item.categorias) + '</td>'
+                tabla += '<td>' + JSON.stringify(item.marcas) + '</td>'
+                tabla += '<td class="textSearch">' + JSON.stringify(item.lineas) + '</td>'
+                tabla += '<td>' + JSON.stringify(item.grupoArticulos) + '</td>'
+                tabla += '<td class="tg-nrix">' + item.seccion1 + '</td>'
+                tabla += '<td class="tg-nrix">' + item.precio + '</td>'
+                tabla += '<td class="tg-nrix">' + item.ganancia + '</td>'
+                tabla += '<td class="tg-nrix">' + item.ordenEstrategia + '</td>'
+                tabla += '<td class="tg-nrix">' + item.orden + '</td>'
                 tabla += '</tr>'
             }
             _element.tblLista.html(tabla)
@@ -92,20 +93,36 @@ const elastic = (() => {
 
                 let fields = localStorage.getItem('fields')
                 fields = fields === undefined || fields === null ? [] : JSON.parse(fields)
-                
+
                 if (orders.length === 0 || fields.length === 0) {
                     alert('Add fields and orders is required')
                     return false
                 }
+
+                if (_element.txtSearch.val() === '') {
+                    alert('Search text is missing')
+                    return false
+                }
+
                 let success = (r) => {
                     _util.pintar(r.hits.hits);
                     cargando(false);
                 }
                 let data = {
-                    fields,
-                    orders,
-                    options: _model.option()
+                    data: {
+                        fields,
+                        orders,
+                        options: {
+                            ..._model.option(),
+                            country: 'CL',
+                            campaign: '202006',
+                            type: 'best_fields',
+                            operator: 'and',
+                            size: '20'
+                        },
+                    }
                 }
+                console.log(data);
                 _service.elastic(data).then(success, (e) => {
                     cargando(false)
                     console.error(e)

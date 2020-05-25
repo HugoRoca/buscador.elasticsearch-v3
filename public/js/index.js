@@ -147,7 +147,7 @@ $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();
         var row =
             '<tr>'+
-                '<td class="tg-nrix"><input id="id" type="hidden" value="' + field_name + '"/>' + field_name + '</td>'+
+                '<td class="tg-nrix"><input id="id" type="hidden" value="' + field_value + '"/>' + field_name + '</td>'+
                 '<td colspan="2">' + JSON.stringify(addField.analyzers) + '</td>'+
                 '<td class="tg-nrix">'+
                     '<a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>'+
