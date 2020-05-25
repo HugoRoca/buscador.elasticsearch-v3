@@ -1,5 +1,6 @@
 const ElasticManager = require('../utils/elasticsearchManager')
 const elasticManager = new ElasticManager()
+const personalizations = ['GND', 'LAN', 'ODD', 'OPT', 'OPM', 'PAD', 'SR', 'LIQ', 'CAT', 'HV', 'LMG', 'REV']
 
 module.exports = class {
     async search({ fields, orders, options }) {

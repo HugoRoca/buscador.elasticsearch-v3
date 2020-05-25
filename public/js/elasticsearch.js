@@ -12,7 +12,12 @@ const elastic = (() => {
         chkRdi: $("#rdi"),
         chkRdr: $("#rdr"),
         btnSearch: $("#btnSearch"),
-        tblLista: $('#tblListas')
+        tblLista: $('#tblListas'),
+        campaign: $('#Campaing'),
+        country: $('#country'),
+        size: $('#size'),
+        type: $('#type'),
+        operator: $('#operator')
     }
 
     const _util = {
@@ -32,12 +37,10 @@ const elastic = (() => {
         pintar: (data) => {
             let tabla = ''
             for (let i = 0; i < data.length; i++) {
-                const score = data[i]._score
                 const item = data[i]._source
                 tabla += '<tr>'
                 tabla += '<td class="tg-nrix">' + item.tipoPersonalizacion + '</td>'
-                tabla += '<td class="tg-nrix profitCol">' + score + '</td>'
-                tabla += '<td class="tg-nrix">'+item.cuv+'</td>'
+                tabla += '<td class="tg-nrix profitCol">' + item.cuv + '</td>'
                 tabla += '<td class="textSearch">' + item.textoBusqueda + '</td>'
                 tabla += '<td>' + JSON.stringify(item.categorias) + '</td>'
                 tabla += '<td>' + JSON.stringify(item.marcas) + '</td>'
@@ -67,7 +70,12 @@ const elastic = (() => {
                 chkMdo: _element.chkMdo.is(':checked'),
                 chkRd: _element.chkRd.is(':checked'),
                 chkRdi: _element.chkRdi.is(':checked'),
-                chkRdr: _element.chkRdr.is(':checked')
+                chkRdr: _element.chkRdr.is(':checked'),
+                campaign: _element.campaign.val(),
+                country: _element.country.val(),
+                size: _element.size.val(),
+                type: _element.type.val(),
+                operator: _element.operator.is(':checked') ? 'and' : undefined
             }
         }
     }
@@ -96,11 +104,13 @@ const elastic = (() => {
 
                 if (orders.length === 0 || fields.length === 0) {
                     alert('Add fields and orders is required')
+                    cargando(false)
                     return false
                 }
 
                 if (_element.txtSearch.val() === '') {
                     alert('Search text is missing')
+                    cargando(false)
                     return false
                 }
 
@@ -112,14 +122,7 @@ const elastic = (() => {
                     data: {
                         fields,
                         orders,
-                        options: {
-                            ..._model.option(),
-                            country: 'CL',
-                            campaign: '202006',
-                            type: 'best_fields',
-                            operator: 'and',
-                            size: '20'
-                        },
+                        options: _model.option()
                     }
                 }
                 console.log(data);
