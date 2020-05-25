@@ -64,7 +64,7 @@ $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();
     });
 
-    $('#add-new-order').click(() => {
+    $('#add-new-order').click(function() {
         $(this).attr("disabled", "disabled");
         var index = $(".table-orders tbody tr:last-child").index();
         var row =

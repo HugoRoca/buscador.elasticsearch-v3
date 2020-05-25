@@ -5,20 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Searcher</title>
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/all.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/loader.css">
   </head>
-
   <body class="content">
+    <div class="cargaPantalla">
+      <div id="loader"></div>
+    </div>
     <div class="container">
       <br />
       <h1 class="text-center display-4">SEARCHER</h1>
@@ -27,10 +24,7 @@
         <div class="table-title">
           <div class="row">
             <div class="col-sm-8">
-              <small
-                >Step 1: Add fields is
-                <b class="text-danger">required</b></small
-              >
+              <small>Step 1: Add fields is <b class="text-danger">required</b></small>
             </div>
             <div class="col-sm-4">
               <button type="button" id="add-new-field" class="btn btn-success btn-lg add-new">
@@ -54,10 +48,7 @@
         <div class="table-title">
           <div class="row">
             <div class="col-sm-8">
-              <small
-                >Step 2: Configure order is
-                <b class="text-danger">required</b></small
-              >
+              <small>Step 2: Configure order is <b class="text-danger">required</b></small>
             </div>
             <div class="col-sm-4">
               <button type="button" id="add-new-order" class="btn btn-success btn-lg add-new">
@@ -78,36 +69,103 @@
           <tbody></tbody>
         </table>
       </div>
-      <div class="row justify-content-center">
-        <div class="col-12 col-md-10 col-lg-8">
-          <form class="card card-sm">
-            <div class="card-body row no-gutters">
+      <div class="table-wrapper card card-sm">
+        <div class="table-title">
+          <div class="row">
+            <div class="col-sm-8">
               <small>Step 3: Adding consultant data is <b>optional</b></small>
             </div>
-          </form>
-          <br />
+          </div>
+        </div>        
+        <div class="form-group row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="opcion-index">Código Consultora:</label>
+              <input type="text" class="form-control" id="codigoConsultora"/>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="opcion-index">Código Zona:</label>
+              <input type="text" class="form-control" id="codigoZona" />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="opcion-index">Personalizaciónes:</label>
+              <input type="text" class="form-control" placeholder="OPM,PAD,SR..." id="personalizaciones"/>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="opcion-index">Día facturación:</label>
+              <input type="text" class="form-control" id="diaFacturacion" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-2">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="sociaEmpresaria"/>
+              <label class="form-check-label" for="sociaEmpresaria">
+                Socia Empresaria
+              </label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="suscripcionActiva"/>
+              <label class="form-check-label" for="suscripcionActiva">
+                Suscripcion Activa
+              </label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="mdo"/>
+              <label class="form-check-label" for="mdo">
+                MDO
+              </label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="rd"/>
+              <label class="form-check-label" for="rd">
+                RD
+              </label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="rdi"/>
+              <label class="form-check-label" for="rdi">
+                RDI
+              </label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="rdr"/>
+              <label class="form-check-label" for="rdr">
+                RDR
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
           <form class="card card-sm">
             <div class="card-body row no-gutters align-items-center">
               <div class="col-auto">
                 <i class="fas fa-search h4 text-body"></i>
               </div>
               <div class="col">
-                <input
-                  class="form-control-lg form-control-borderless"
-                  type="search"
-                  placeholder="Write the word to search"
-                  id="txtSearch"
-                  style="width: 350px;"
-                />
+                <input class="form-control-lg form-control-borderless" type="search" placeholder="Write the word to search" id="txtSearch" style="width: 350px;"/>
               </div>
               <div class="col-auto">
-                <button
-                  class="btn btn-lg btn-success"
-                  id="btnSearch"
-                  type="button"
-                >
-                  Search
-                </button>
+                <button class="btn btn-lg btn-success" id="btnSearch" type="button">Search</button>
               </div>
             </div>
           </form>
@@ -121,7 +179,6 @@
               <th style="left: 0px;"></th>
               <th class="profitCol">SCORE</th>
               <th>TEXTO BUSQUEDA</th>
-              <th class="revenueCol">REVENUE</th>
               <th>CATEGORIAS</th>
               <th>MARCAS</th>
               <th>LINEAS</th>
@@ -129,34 +186,11 @@
               <th>SECCIÓN</th>
               <th>PRECIO</th>
               <th class="contBox">GANANCIA</th>
+              <th class="contBox">ORDEN ESTRATEGIA</th>
+              <th class="contBox">ORDEN PERSONALIZADO</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>OPM</td>
-              <td class="profitCol">654.654</td>
-              <td class="textSearch">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut
-                neque porro et soluta assumenda. Ullam, ea? Ex nulla fugit vel
-                hic provident labore, error dolor eos placeat sunt, omnis
-                expedita.
-              </td>
-              <td class="revenueCol">52</td>
-              <td>Brewer</td>
-              <td>
-                £47,000 <br />
-                £47,000
-              </td>
-              <td>Married</td>
-              <td>2</td>
-              <td>John Smith</td>
-              <td>
-                Macelsfield <br />
-                Macelsfield
-              </td>
-              <td>Provide contextual feedback messages for typical</td>
-            </tr>
-          </tbody>
+          <tbody id="tblListas"></tbody>
         </table>
       </div>
     </div>
@@ -166,10 +200,22 @@
         <small>By powered Hugo Roca | 2020 | team buscador</small>
       </div>
     </footer>
-    <script src="./js/jquery-3.5.1.slim.min.js"></script>
-    <script src="./js/popper.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="./js/table.js"></script>
     <script src="./js//index.js"></script>
+    <script src="./js//elasticsearch.js"></script>
+    <script>
+      function cargando(val) {
+        if (val) {
+          $(".cargaPantalla").show();
+        } else {
+          $(".cargaPantalla").hide();
+        }
+      }
+
+      cargando(false);
+    </script>
   </body>
 </html>
