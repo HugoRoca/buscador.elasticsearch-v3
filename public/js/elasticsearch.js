@@ -63,14 +63,14 @@ const elastic = (() => {
                 txtSearch: _element.txtSearch.val(),
                 codigoConsultora: _element.codigoConsultora.val(),
                 codigoZona: _element.codigoZona.val(),
-                personalizaciones: _element.personalizaciones.val(),
-                diaFacturacion: _element.diaFacturacion.val(),
-                chkSociaEmpresaria: _element.chkSociaEmpresaria.is(':checked'),
-                chkSuscripcionActiva: _element.chkSuscripcionActiva.is(':checked'),
-                chkMdo: _element.chkMdo.is(':checked'),
-                chkRd: _element.chkRd.is(':checked'),
-                chkRdi: _element.chkRdi.is(':checked'),
-                chkRdr: _element.chkRdr.is(':checked'),
+                personalizationsDummy: _element.personalizaciones.val() === '' ? 'XYZ' : _element.personalizaciones.val(),
+                billingDay: _element.diaFacturacion.val(),
+                businessPartner: _element.chkSociaEmpresaria.is(':checked'),
+                activeSubscription: _element.chkSuscripcionActiva.is(':checked'),
+                mdo: _element.chkMdo.is(':checked'),
+                rd: _element.chkRd.is(':checked'),
+                rdi: _element.chkRdi.is(':checked'),
+                rdr: _element.chkRdr.is(':checked'),
                 campaign: _element.campaign.val(),
                 country: _element.country.val(),
                 size: _element.size.val(),
@@ -116,6 +116,7 @@ const elastic = (() => {
 
                 let success = (r) => {
                     _util.pintar(r.hits.hits);
+                    $('#query').val(r.query)
                     cargando(false);
                 }
                 let data = {
@@ -125,7 +126,7 @@ const elastic = (() => {
                         options: _model.option()
                     }
                 }
-                console.log(data);
+                
                 _service.elastic(data).then(success, (e) => {
                     cargando(false)
                     console.error(e)

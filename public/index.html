@@ -157,19 +157,19 @@
           <div class="col-md-4">
             <div class="form-group">
               <label for="opcion-index">Consulting code:</label>
-              <input type="text" class="form-control" id="codigoConsultora" />
+              <input type="text" class="form-control" id="codigoConsultora" value="032610099"/>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
               <label for="opcion-index">Personalizations:</label>
-              <input type="text" class="form-control" placeholder="OPM,PAD,SR..." id="personalizaciones"/>
+              <input type="text" class="form-control" placeholder="OPM,PAD,SR..." id="personalizaciones" onkeyup="this.value = this.value.toUpperCase();"/>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
               <label for="opcion-index">Billing day:</label>
-              <input type="text" class="form-control" id="diaFacturacion" />
+              <input type="text" class="form-control" id="diaFacturacion" value="1"/>
             </div>
           </div>
         </div>
@@ -274,6 +274,22 @@
           </thead>
           <tbody id="tblListas"></tbody>
         </table>
+      </div>
+    </div>
+    <div class="table-wrapper card card-sm">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-8">
+            <small>Query to elastic: </small></small>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <textarea id="query" cols="30" rows="10" class="form-control"></textarea>
+          </div>
+        </div>
       </div>
     </div>
     <br />

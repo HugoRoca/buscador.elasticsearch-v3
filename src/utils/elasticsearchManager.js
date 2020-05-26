@@ -25,7 +25,6 @@ module.exports = class {
 
   async search(country, campaign, data) {
     const index = this.getIndexName(country, campaign)
-    console.log(index)
     return await this.getClient(country).search({
       index,
       type: '_doc',

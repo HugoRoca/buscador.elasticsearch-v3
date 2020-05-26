@@ -1,5 +1,7 @@
 const ElasticManager = require('../utils/elasticsearchManager')
+const Dummy = require('../utils/filters')
 const elasticManager = new ElasticManager()
+const { size } = require('lodash')
 const personalizations = ['GND', 'LAN', 'ODD', 'OPT', 'OPM', 'PAD', 'SR', 'LIQ', 'CAT', 'HV', 'LMG', 'REV']
 
 module.exports = class {
@@ -7,17 +9,26 @@ module.exports = class {
         const multi_match = this.buildQueryFields(fields, options)
         let sort = this.buildQueryOrders(orders)
         sort = sort.length === 0 ? undefined : sort
+        const dummy = new Dummy(options)
+        const consultingDummy = dummy.getConsultantDummyQuery(personalizations)
+        let filter = []
+        if (size(consultingDummy) > 0) filter.push({ bool: { should: consultingDummy } })
         const query = {
             size: options.size,
             sort,
             query: {
                 bool: {
-                    must: multi_match
+                    must: multi_match,
+                    filter
                 }
             }
         }
-        console.log(JSON.stringify(query))
-        return await elasticManager.search(options.country, options.campaign, query)
+        
+        const data = await elasticManager.search(options.country, options.campaign, query)
+        return {
+            ...data,
+            query: JSON.stringify(query)
+        }
     }
 
     buildQueryOrders(orders) {
@@ -56,8 +67,8 @@ module.exports = class {
                     const importance = element.importance
                     field_string += analyzer === '' ? '' : `.${analyzer}`
                     field_string += importance === 0 ? '' : `^${importance}`
-                   array.push(field_string)
-                   field_string = field
+                    array.push(field_string)
+                    field_string = field
                 }
             } else {
                 array.push(field_string)
