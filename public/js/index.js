@@ -1,7 +1,8 @@
 $(document).ready(function () {
-    var dataLocal = [];
-    localStorage.setItem("fields", JSON.stringify(dataLocal));
-    localStorage.setItem("orders", JSON.stringify(dataLocal));
+    var dataLocalOrders = [{"order":"orden","type":"asc","importance":"alta"},{"order":"ordenEstrategia","type":"asc","importance":"media"},{"order":"_score","type":"asc","importance":"baja"}];
+    var dataLocalFields = [{"field":"textoBusqueda","analyzers":[{"analyzer":"ngram","importance":"12"},{"analyzer":"synonym","importance":"15"},{"analyzer":"phonetic","importance":"10"},{"analyzer":"","importance":"20"}]},{"field":"marcas","analyzers":[{"analyzer":"ngram","importance":"0"},{"analyzer":"synonym","importance":"6"},{"analyzer":"phonetic","importance":"4"},{"analyzer":"","importance":"8"}]},{"field":"categorias","analyzers":[{"analyzer":"ngram","importance":"0"},{"analyzer":"synonym","importance":"6"},{"analyzer":"phonetic","importance":"4"},{"analyzer":"","importance":"8"}]},{"field":"lineas","analyzers":[{"analyzer":"ngram","importance":"0"},{"analyzer":"synonym","importance":"6"},{"analyzer":"phonetic","importance":"2"},{"analyzer":"","importance":"8"}]},{"field":"grupoArticulos","analyzers":[{"analyzer":"ngram","importance":"0"},{"analyzer":"synonym","importance":"8"},{"analyzer":"phonetic","importance":"6"},{"analyzer":"","importance":"8"}]},{"field":"seccion1","analyzers":[{"analyzer":"ngram","importance":"0"},{"analyzer":"synonym","importance":"6"},{"analyzer":"phonetic","importance":"4"},{"analyzer":"","importance":"8"}]}];
+    localStorage.setItem("fields", JSON.stringify(dataLocalFields));
+    localStorage.setItem("orders", JSON.stringify(dataLocalOrders));
 
     $('[data-toggle="tooltip"]').tooltip();
 
@@ -10,7 +11,7 @@ $(document).ready(function () {
         var index = $(".table-fields tbody tr:last-child").index();
         var row =
             '<tr id="tr1_field">' +
-                '<td class="tg-nrix" rowspan="3">' +
+                '<td class="tg-nrix" rowspan="4">' +
                     '<select name="fields" id="fields" class="form-control">' +
                         '<option value="categorias">Categoría</option>' +
                         '<option value="textoBusqueda">Texto busqueda</option>' +
@@ -29,7 +30,7 @@ $(document).ready(function () {
                 "<td>" +
                     '<input class="form-control" type="number" id="importance_ngram" min="0" max="100" value="0">' +
                 "</td>" +
-                '<td class="tg-nrix" rowspan="3">' +
+                '<td class="tg-nrix" rowspan="4">' +
                     '<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>' +
                     '<a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>' +
                 "</td>" +
@@ -54,6 +55,17 @@ $(document).ready(function () {
                 "</td>" +
                 "<td>" +
                     '<input class="form-control" type="number" id="importance_synonym" min="0" max="100" value="0">' +
+                "</td>" +
+            "</tr>" +
+            '<tr id="tr4_field">' +
+                "<td>" +
+                    '<div class="form-check form-check-inline">' +
+                    '<input class="form-check-input" type="checkbox" id="no_analyzers" value="option3">' +
+                    '<label class="form-check-label" for="no_analyzers">no_analyzers</label>' +
+                    "</div>" +
+                "</td>" +
+                "<td>" +
+                    '<input class="form-control" type="number" id="importance_no_analyzers" min="0" max="100" value="0">' +
                 "</td>" +
             "</tr>";
         $(".table-fields").append(row);
@@ -120,9 +132,11 @@ $(document).ready(function () {
         var analyzer_ngram = $('input[id="ngram"]').is(":checked");
         var analyzer_synonym = $('input[id="synonym"]').is(":checked");
         var analyzer_phonetic = $('input[id="phonetic"]').is(":checked");
+        var no_analyzer = $('input[id="no_analyzers"]').is(":checked");
         var importance_ngram = $('input[id="importance_ngram"]').val();
         var importance_synonym = $('input[id="importance_synonym"]').val();
         var importance_phonetic = $('input[id="importance_phonetic"]').val();
+        var importance_no_analyzer = $('input[id="importance_no_analyzers"]').val();
         var analyzers = [];
 
         if (dataLocal.length > 0) {
@@ -138,6 +152,7 @@ $(document).ready(function () {
         if (analyzer_ngram) analyzers.push({ analyzer: "ngram", importance: importance_ngram });
         if (analyzer_synonym) analyzers.push({ analyzer: "synonym", importance: importance_synonym });
         if (analyzer_phonetic) analyzers.push({ analyzer: "phonetic", importance: importance_phonetic });
+        if (no_analyzer) analyzers.push({ analyzer: "", importance: importance_no_analyzer });
 
         var addField = { field: field_value, analyzers };
 
@@ -156,7 +171,7 @@ $(document).ready(function () {
         $(".table-fields").append(row);
         $('[data-toggle="tooltip"]').tooltip();
         $("#add-new-field").removeAttr("disabled");
-        $("#tr1_field,#tr2_field,#tr3_field,.tooltip").remove();
+        $("#tr1_field,#tr2_field,#tr3_field,#tr4_field,.tooltip").remove();
     });
 
     $(".table-orders").on("click", ".add", function () {

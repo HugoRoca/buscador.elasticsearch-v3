@@ -117,7 +117,37 @@
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody>
+            <tr>
+              <td class="tg-nrix"><input id="id" type="hidden" value="textoBusqueda">Texto busqueda</td>
+              <td colspan="2">[{"analyzer":"ngram","importance":"12"},{"analyzer":"synonym","importance":"15"},{"analyzer":"phonetic","importance":"10"},{"analyzer":"","importance":"20"}]</td>
+              <td class="tg-nrix"><a class="delete" title="" data-toggle="tooltip" data-original-title="Delete"><i class="material-icons">&#xE872;</i></a></td>
+            </tr>
+            <tr>
+              <td class="tg-nrix"><input id="id" type="hidden" value="marcas">Marcas</td>
+              <td colspan="2">[{"analyzer":"ngram","importance":"0"},{"analyzer":"synonym","importance":"6"},{"analyzer":"phonetic","importance":"4"},{"analyzer":"","importance":"8"}]</td>
+              <td class="tg-nrix"><a class="delete" title="" data-toggle="tooltip" data-original-title="Delete"><i class="material-icons">&#xE872;</i></a></td>
+            </tr>
+            <tr>
+              <td class="tg-nrix"><input id="id" type="hidden" value="categorias">Categoría</td><td colspan="2">[{"analyzer":"ngram","importance":"0"},{"analyzer":"synonym","importance":"6"},{"analyzer":"phonetic","importance":"4"},{"analyzer":"","importance":"8"}]</td>
+              <td class="tg-nrix"><a class="delete" title="" data-toggle="tooltip" data-original-title="Delete"><i class="material-icons">&#xE872;</i></a></td>
+            </tr>
+            <tr>
+              <td class="tg-nrix"><input id="id" type="hidden" value="lineas">Lineas</td>
+              <td colspan="2">[{"analyzer":"ngram","importance":"0"},{"analyzer":"synonym","importance":"6"},{"analyzer":"phonetic","importance":"2"},{"analyzer":"","importance":"8"}]</td>
+              <td class="tg-nrix"><a class="delete" title="" data-toggle="tooltip" data-original-title="Delete"><i class="material-icons">&#xE872;</i></a></td>
+            </tr>
+            <tr>
+              <td class="tg-nrix"><input id="id" type="hidden" value="grupoArticulos">Grupo articulos</td>
+              <td colspan="2">[{"analyzer":"ngram","importance":"0"},{"analyzer":"synonym","importance":"8"},{"analyzer":"phonetic","importance":"6"},{"analyzer":"","importance":"8"}]</td>
+              <td class="tg-nrix"><a class="delete" title="" data-toggle="tooltip" data-original-title="Delete"><i class="material-icons">&#xE872;</i></a></td>
+            </tr>
+            <tr>
+              <td class="tg-nrix"><input id="id" type="hidden" value="seccion1">Sección</td>
+              <td colspan="2">[{"analyzer":"ngram","importance":"0"},{"analyzer":"synonym","importance":"6"},{"analyzer":"phonetic","importance":"4"},{"analyzer":"","importance":"8"}]</td>
+              <td class="tg-nrix"><a class="delete" title="" data-toggle="tooltip" data-original-title="Delete"><i class="material-icons">&#xE872;</i></a></td>
+            </tr>
+          </tbody>
         </table>
       </div>
       <div class="table-wrapper card card-sm">
@@ -142,7 +172,26 @@
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody>
+            <tr>
+              <td><input id="id" type="hidden" value="orden">Orden personalizado</td>
+              <td>ascendente</td>
+              <td>Alta</td>
+              <td><a class="delete" title="" data-toggle="tooltip" data-original-title="Delete"><i class="material-icons">&#xE872;</i></a></td>
+            </tr>
+            <tr>
+              <td><input id="id" type="hidden" value="ordenEstrategia">Orden estrategia</td>
+              <td>ascendente</td>
+              <td>Media</td>
+              <td><a class="delete" title="" data-toggle="tooltip" data-original-title="Delete"><i class="material-icons">&#xE872;</i></a></td>
+            </tr>
+            <tr>
+              <td><input id="id" type="hidden" value="_score">Score</td>
+              <td>ascendente</td>
+              <td>Baja</td>
+              <td><a class="delete" title="" data-toggle="tooltip" data-original-title="Delete"><i class="material-icons">&#xE872;</i></a></td>
+            </tr>
+          </tbody>
         </table>
       </div>
       <div class="table-wrapper card card-sm">
@@ -156,19 +205,19 @@
         <div class="form-group row">
           <div class="col-md-4">
             <div class="form-group">
-              <label for="opcion-index">Consulting code:</label>
+              <label for="opcion-index">Codigo consultora:</label>
               <input type="text" class="form-control" id="codigoConsultora" value="032610099"/>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label for="opcion-index">Personalizations:</label>
+              <label for="opcion-index">Personalizaciones:</label>
               <input type="text" class="form-control" placeholder="OPM,PAD,SR..." id="personalizaciones" onkeyup="this.value = this.value.toUpperCase();"/>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label for="opcion-index">Billing day:</label>
+              <label for="opcion-index">Día facturación:</label>
               <input type="text" class="form-control" id="diaFacturacion" value="1"/>
             </div>
           </div>
@@ -178,7 +227,7 @@
             <div class="form-check">
               <input class="form-check-input" type="checkbox" value="" id="sociaEmpresaria"/>
               <label class="form-check-label" for="sociaEmpresaria">
-                Business partner
+                Socia empresaria
               </label>
             </div>
           </div>
@@ -186,7 +235,7 @@
             <div class="form-check">
               <input class="form-check-input" type="checkbox" value="" id="suscripcionActiva"/>
               <label class="form-check-label" for="suscripcionActiva">
-                Active subscription
+                Suscripción activa
               </label>
             </div>
           </div>
