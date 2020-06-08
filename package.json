@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=stage nodemon ./src/server.js"
+    "start": "npm run open && npm run start-server",
+    "start-server": "cross-env NODE_ENV=stage nodemon ./src/server.js",
+    "open": "open-cli http://localhost:3000/"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,8 @@
     "koa-router": "^8.0.8",
     "koa-static": "^5.0.0",
     "lodash": "^4.17.15",
+    "open-cli": "^6.0.1",
+    "opener": "^1.5.1",
     "yenv": "^2.1.1"
   },
   "devDependencies": {
