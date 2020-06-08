@@ -41,6 +41,7 @@ const elastic = (() => {
                 tabla += '<tr>'
                 tabla += '<td class="tg-nrix">' + item.tipoPersonalizacion + '</td>'
                 tabla += '<td class="tg-nrix profitCol">' + item.cuv + '</td>'
+                tabla += '<td>' + item.descripcion + '</td>'
                 tabla += '<td class="textSearch">' + item.textoBusqueda + '</td>'
                 tabla += '<td>' + JSON.stringify(item.categorias) + '</td>'
                 tabla += '<td>' + JSON.stringify(item.marcas) + '</td>'
@@ -103,7 +104,7 @@ const elastic = (() => {
                 fields = fields === undefined || fields === null ? [] : JSON.parse(fields)
 
                 if (orders.length === 0 || fields.length === 0) {
-                    alert('Add fields and orders is required')
+                    alert('Configurar los campos de bpusqueda y ordenamiento son requeridos')
                     cargando(false)
                     return false
                 }
