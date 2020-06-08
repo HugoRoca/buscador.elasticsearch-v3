@@ -61,7 +61,7 @@ $(document).ready(function () {
                 "<td>" +
                     '<div class="form-check form-check-inline">' +
                     '<input class="form-check-input" type="checkbox" id="no_analyzers" value="option3">' +
-                    '<label class="form-check-label" for="no_analyzers">no_analyzers</label>' +
+                    '<label class="form-check-label" for="no_analyzers">Por defecto</label>' +
                     "</div>" +
                 "</td>" +
                 "<td>" +

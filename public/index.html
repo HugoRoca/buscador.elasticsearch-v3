@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Searcher</title>
+    <title>Buscador</title>
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     <link
       rel="stylesheet"
@@ -29,26 +29,26 @@
     </div>
     <div class="container">
       <br />
-      <h1 class="text-center display-4">SEARCHER</h1>
+      <h1 class="text-center display-4">Simulador Buscador</h1>
       <br />
       <div class="table-wrapper card card-sm">
         <div class="table-title">
           <div class="row">
             <div class="col-sm-8">
-              <small>Step 1: Setting is <b class="text-danger">required</b></small></small>
+              <small>Paso 1: Configuración Principal <b class="text-danger">(requerido)</b></small></small>
             </div>
           </div>
         </div>
         <div class="form-group row">
           <div class="col-md-4">
             <div class="form-group">
-              <label for="opcion-index">Campaing:</label>
+              <label for="opcion-index">Campaña:</label>
               <input type="text" class="form-control" id="Campaing" value="202006"/>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label for="opcion-index">Country:</label>
+              <label for="opcion-index">País:</label>
               <select class="form-control" id="country">
                 <option value="PE">Perú</option>
                 <option value="CL">Chile</option>
@@ -67,7 +67,7 @@
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label for="opcion-index">Size:</label>
+              <label for="opcion-index">Cantidad de Registros:</label>
               <input type="number" class="form-control" id="size" value="20" />
             </div>
           </div>
@@ -75,7 +75,7 @@
         <div class="form-group row">
           <div class="col-md-6">
             <div class="form-group">
-              <label for="opcion-index">Type:</label>
+              <label for="opcion-index">Tipo multi_match (opción interna elastic):</label>
               <select class="form-control" id="type">
                 <option value="best_fields">best_fields</option>
                 <option value="most_fields">most_fields</option>
@@ -86,7 +86,7 @@
             </div>
           </div>
           <div class="col-md-6">
-            <label for="opcion-index">Operator:</label>
+            <label for="opcion-index">Operador (opción interna elastic):</label>
             <div class="form-check">
               <input class="form-check-input" type="checkbox" value="" id="operator"/>
               <label class="form-check-label" for="operator">
@@ -100,11 +100,11 @@
         <div class="table-title">
           <div class="row">
             <div class="col-sm-8">
-              <small>Step 2: Add fields is <b class="text-danger">required</b></small>
+              <small>Paso 2: Campos utilizados en la búsqueda <b class="text-danger">(requerido)</b></small>
             </div>
             <div class="col-sm-4">
               <button type="button" id="add-new-field" class="btn btn-success btn-lg add-new">
-                <i class="fa fa-plus"></i> Add new
+                <i class="fa fa-plus"></i> Agregar Nuevo
               </button>
             </div>
           </div>
@@ -112,9 +112,9 @@
         <table class="table table-bordered table-fields tg">
           <thead>
             <tr>
-              <th>Field</th>
-              <th colspan="2">Analyzer and Importence</th>
-              <th>Actions</th>
+              <th>Campo</th>
+              <th colspan="2">Analizador e Importancia (Algoritmo)</th>
+              <th>Acción</th>
             </tr>
           </thead>
           <tbody>
@@ -154,11 +154,11 @@
         <div class="table-title">
           <div class="row">
             <div class="col-sm-8">
-              <small>Step 3: Configure order is <b class="text-danger">required</b></small>
+              <small>Paso 3: Configuración Ordenamiento <b class="text-danger">(requerido)</b></small>
             </div>
             <div class="col-sm-4">
               <button type="button" id="add-new-order" class="btn btn-success btn-lg add-new">
-                <i class="fa fa-plus"></i> Add new
+                <i class="fa fa-plus"></i> Agregar Nuevo
               </button>
             </div>
           </div>
@@ -166,27 +166,27 @@
         <table class="table table-bordered table-orders tg">
           <thead>
             <tr>
-              <th>Type</th>
-              <th>Asc or desc</th>
-              <th>Priority</th>
-              <th>Actions</th>
+              <th>Tipo</th>
+              <th>Asc / desc</th>
+              <th>Prioridad</th>
+              <th>Acción</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><input id="id" type="hidden" value="orden">Orden personalizado</td>
+              <td><input id="id" type="hidden" value="orden">Orden Oferta (CM)</td>
               <td>ascendente</td>
               <td>Alta</td>
               <td><a class="delete" title="" data-toggle="tooltip" data-original-title="Delete"><i class="material-icons">&#xE872;</i></a></td>
             </tr>
             <tr>
-              <td><input id="id" type="hidden" value="ordenEstrategia">Orden estrategia</td>
+              <td><input id="id" type="hidden" value="ordenEstrategia">Orden Palanca</td>
               <td>ascendente</td>
               <td>Media</td>
               <td><a class="delete" title="" data-toggle="tooltip" data-original-title="Delete"><i class="material-icons">&#xE872;</i></a></td>
             </tr>
             <tr>
-              <td><input id="id" type="hidden" value="_score">Score</td>
+              <td><input id="id" type="hidden" value="_score">Score (interno elastic)</td>
               <td>ascendente</td>
               <td>Baja</td>
               <td><a class="delete" title="" data-toggle="tooltip" data-original-title="Delete"><i class="material-icons">&#xE872;</i></a></td>
@@ -198,26 +198,26 @@
         <div class="table-title">
           <div class="row">
             <div class="col-sm-8">
-              <small>Step 4: Adding consultant data is <b class="text-danger">required</b></small>
+              <small>Paso 4: Datos de la consultora <b class="text-danger">(requerido)</b></small>
             </div>
           </div>
         </div>
         <div class="form-group row">
           <div class="col-md-4">
             <div class="form-group">
-              <label for="opcion-index">Codigo consultora:</label>
+              <label for="opcion-index">Código Consultora:</label>
               <input type="text" class="form-control" id="codigoConsultora" value="032610099"/>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label for="opcion-index">Personalizaciones:</label>
+              <label for="opcion-index">Palancas:</label>
               <input type="text" class="form-control" placeholder="OPM,PAD,SR..." id="personalizaciones" onkeyup="this.value = this.value.toUpperCase();"/>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label for="opcion-index">Día facturación:</label>
+              <label for="opcion-index">Día inicio:</label>
               <input type="text" class="form-control" id="diaFacturacion" value="1"/>
             </div>
           </div>
@@ -284,9 +284,9 @@
                 <input
                   class="form-control-lg form-control-borderless"
                   type="search"
-                  placeholder="Write the word to search"
+                  placeholder="Escribe aquí lo que deseas buscar"
                   id="txtSearch"
-                  style="width: 350px;"
+                  style="width: 450px;"
                 />
               </div>
               <div class="col-auto">
@@ -295,7 +295,7 @@
                   id="btnSearch"
                   type="button"
                 >
-                  Search
+                  Buscar
                 </button>
               </div>
             </div>
@@ -309,16 +309,17 @@
             <tr style="top: 0px;">
               <th style="left: 0px;"></th>
               <th class="profitCol">CUV</th>
-              <th>TEXTO BUSQUEDA</th>
-              <th>CATEGORIAS</th>
-              <th>MARCAS</th>
-              <th>LINEAS</th>
-              <th>ARTICULOS</th>
-              <th>SECCIÓN</th>
-              <th>PRECIO</th>
-              <th class="contBox">GANANCIA</th>
-              <th class="contBox">ORDEN ESTRATEGIA</th>
-              <th class="contBox">ORDEN PERSONALIZADO</th>
+              <th>Descripción</th>
+              <th>Texto Búsqueda</th>
+              <th>Categorias</th>
+              <th>Marcas</th>
+              <th>Líneas</th>
+              <th>Artículos</th>
+              <th>Sección</th>
+              <th>Precio</th>
+              <th class="contBox">Ganancia</th>
+              <th class="contBox">Orden Palanca</th>
+              <th class="contBox">Orden Oferta</th>
             </tr>
           </thead>
           <tbody id="tblListas"></tbody>
@@ -329,7 +330,7 @@
       <div class="table-title">
         <div class="row">
           <div class="col-sm-8">
-            <small>Query to elastic: </small></small>
+            <small>Query final que se envia a Elasticsearch: </small></small>
           </div>
         </div>
       </div>
